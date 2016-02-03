@@ -37,10 +37,7 @@ public class ActivityResult {
     /**
      * onActivityResultを呼び出す
      *
-     * @param sender      呼び出し対象のオブジェクト
-     * @param requestCode
-     * @param resultCode
-     * @param data
+     * @param sender 呼び出し対象のオブジェクト
      * @return ハンドリングを行ったらtrue
      */
     public static boolean invoke(Object sender, int requestCode, int resultCode, Intent data) {
@@ -77,11 +74,7 @@ public class ActivityResult {
     }
 
     /**
-     * @param sender      呼び出し対象のFragment
-     * @param requestCode
-     * @param resultCode
-     * @param data
-     * @return
+     * @param sender 呼び出し対象のFragment
      */
     public static boolean invokeRecursive(Fragment sender, int requestCode, int resultCode, Intent data) {
         if (invoke(sender, requestCode, resultCode, data)) {
