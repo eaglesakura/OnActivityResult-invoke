@@ -30,8 +30,13 @@ android {
     }
 }
 
+// check env
+if (!hasProperty("ANDROID_SUPPORT_LIB_VERSION")) {
+    ext.ANDROID_SUPPORT_LIB_VERSION = "+"
+}
+
 dependencies {
-    provided "com.android.support:support-v4:23.1.1"
+    provided "com.android.support:support-v4:${ANDROID_SUPPORT_LIB_VERSION}"
 }
 
 apply plugin: 'maven'
