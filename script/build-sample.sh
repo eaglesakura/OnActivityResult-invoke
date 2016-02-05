@@ -1,4 +1,4 @@
 #! /bin/sh
-rm local.properties
 cd sample
+rm local.properties
 ../gradlew clean build
