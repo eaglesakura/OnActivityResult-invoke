@@ -26,3 +26,4 @@ deployment:
     branch: 1.0.x
     commands:
       - ./script/deploy.sh
+      - ./script/build-sample.sh
