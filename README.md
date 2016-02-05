@@ -2,6 +2,8 @@
 
 [![Circle CI](https://circleci.com/gh/eaglesakura/onactivityresult-invoke.png?style=badge)](https://circleci.com/gh/eaglesakura/onactivityresult-invoke)
 
+[JavaDoc](http://eaglesakura.github.io/maven/doc/onactivityresult-invoke/javadoc/)
+
 ## 概要
 
 AndroidのActivity.onActivityResultとFragment.onActivityResultの処理を自動化するためのライブラリです。
