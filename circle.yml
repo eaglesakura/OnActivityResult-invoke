@@ -2,10 +2,7 @@ checkout:
   post:
     - chmod 755 ./gradlew
     - chmod 755 ./script/deploy.sh
-    - rm -rf "~/.gradle/"
-    - rm -rf "home/ubuntu/.m2"
-    - rm -rf "home/ubuntu/.ivy2"
-    - rm -rf "home/ubuntu/.gradle"
+    - chmod 755 ./script/build-sample.sh
 machine:
   timezone:
     Asia/Tokyo
@@ -23,7 +20,13 @@ test:
     - echo "Skip test task"
 deployment:
   canary:
-    branch: 1.0.x
+    branch: /^v[0-9]\..*$/
     commands:
+      - rm -rf "/home/ubuntu/.gradle/"
+      - rm -rf "/home/ubuntu/.m2"
+      - rm -rf "/home/ubuntu/.ivy2"
+      - rm -rf "/home/ubuntu/.gradle"
+      - git clone git@github.com:eaglesakura/maven.git
       - ./script/deploy.sh
+      - ./script/circle-maven-commit.sh
       - ./script/build-sample.sh
