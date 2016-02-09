@@ -3,6 +3,7 @@ checkout:
     - chmod 755 ./gradlew
     - chmod 755 ./script/deploy.sh
     - chmod 755 ./script/build-sample.sh
+    - chmod 755 ./script/circle-maven-commit.sh
 machine:
   timezone:
     Asia/Tokyo
@@ -22,7 +23,6 @@ deployment:
   canary:
     branch: /^v[0-9]\..*$/
     commands:
-      - rm -rf "/home/ubuntu/.gradle/"
       - rm -rf "/home/ubuntu/.m2"
       - rm -rf "/home/ubuntu/.ivy2"
       - rm -rf "/home/ubuntu/.gradle"
@@ -33,4 +33,7 @@ deployment:
   develop:
     branch: develop
     commands:
+      - rm -rf "/home/ubuntu/.m2"
+      - rm -rf "/home/ubuntu/.ivy2"
+      - rm -rf "/home/ubuntu/.gradle"
       - ./script/deploy.sh
