@@ -40,7 +40,7 @@ android {
 
 // check env
 if (!hasProperty("ANDROID_SUPPORT_LIB_VERSION")) {
-    ext.ANDROID_SUPPORT_LIB_VERSION = "+"
+    ext.ANDROID_SUPPORT_LIB_VERSION = "23.+"
 }
 
 dependencies {
