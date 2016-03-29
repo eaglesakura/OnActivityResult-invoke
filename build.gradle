@@ -42,9 +42,21 @@ android {
 if (!hasProperty("ANDROID_SUPPORT_LIB_VERSION")) {
     ext.ANDROID_SUPPORT_LIB_VERSION = "23.+"
 }
+// Local or maven
+if (!hasProperty("EGLIBRARY_COMPILE_LOCAL")) {
+    ext.EGLIBRARY_COMPILE_LOCAL = false
+}
 
 dependencies {
     provided "com.android.support:support-v4:${ANDROID_SUPPORT_LIB_VERSION}"
+
+    if (EGLIBRARY_COMPILE_LOCAL) {
+        androidTestCompile project(":eglibrary:android-devicetest-support")
+        testCompile project(":eglibrary:android-unittest-support")
+    } else {
+        androidTestCompile 'com.eaglesakura:android-devicetest-support:1.+'
+        testCompile 'com.eaglesakura:android-unittest-support:1.+'
+    }
 }
 
 apply plugin: 'maven'
