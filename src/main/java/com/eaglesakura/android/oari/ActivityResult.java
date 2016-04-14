@@ -73,7 +73,7 @@ public class ActivityResult {
             List<Fragment> fragments = sender.getChildFragmentManager().getFragments();
             if (fragments != null) {
                 for (Fragment child : fragments) {
-                    if (invoke(child, requestCode, resultCode, data)) {
+                    if (invokeRecursive(child, requestCode, resultCode, data)) {
                         // 子がハンドリングに成功した
                         return true;
                     }
