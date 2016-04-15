@@ -9,7 +9,7 @@ import java.lang.annotation.Target;
  * OnAfterViewsのハンドリングを行う
  */
 @Target({ElementType.METHOD})
-@Retention(RetentionPolicy.CLASS)
+@Retention(RetentionPolicy.RUNTIME)
 public @interface OnActivityResult {
     int value();
 }
