@@ -25,8 +25,7 @@ public class ActivityResult {
                     m.invoke(sender, resultCode, data);
                     return true;
                 } catch (Exception e) {
-                    e.printStackTrace();
-                    return false;
+                    throw new IllegalStateException(e);
                 }
             }
         }
