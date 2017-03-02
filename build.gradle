@@ -42,7 +42,7 @@ android {
 
 // check env
 if (!hasProperty("ANDROID_SUPPORT_LIB_VERSION")) {
-    ext.ANDROID_SUPPORT_LIB_VERSION = "25.+"
+    ext.ANDROID_SUPPORT_LIB_VERSION = "25.2.+"
 }
 // Local or maven
 if (!hasProperty("EGLIBRARY_COMPILE_LOCAL")) {
