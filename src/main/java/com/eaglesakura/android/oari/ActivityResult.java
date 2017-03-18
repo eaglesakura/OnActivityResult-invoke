@@ -62,6 +62,7 @@ public class ActivityResult {
     /**
      * @param sender 呼び出し対象のFragment
      */
+    @SuppressWarnings("RestrictedApi")
     public static boolean invokeRecursive(Fragment sender, int requestCode, int resultCode, Intent data) {
         if (invoke(sender, requestCode, resultCode, data)) {
             return true;
