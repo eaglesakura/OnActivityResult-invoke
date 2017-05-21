@@ -63,8 +63,8 @@ dependencies {
         androidTestImplementation project(":eglibrary:android-devicetest-support")
         testImplementation project(":eglibrary:android-unittest-support")
     } else {
-        androidTestImplementation "com.eaglesakura:android-devicetest-support:2.1.272"
-        testImplementation "com.eaglesakura:android-unittest-support:1.4.207"
+        androidTestCompile "com.eaglesakura:android-devicetest-support:2.2.275"
+        testCompile "com.eaglesakura:android-unittest-support:1.5.211"
     }
 }
 
@@ -83,7 +83,8 @@ android.libraryVariants.all { variant ->
         description "Generates Android Javadoc for $variant.name."
         source = variant.javaCompile.source
         ext.androidJar = "${android.sdkDirectory}/platforms/${android.compileSdkVersion}/android.jar"
-        classpath = files(variant.javaCompile.classpath.files) + files(ext.androidJar) + files("build/intermediates/classes/${variant.name}/")
+//        classpath = files(variant.javaCompile.classpath.files) + files(ext.androidJar) + files("build/intermediates/classes/${variant.name}/")
+        classpath = files(ext.androidJar) + files("build/intermediates/classes/${variant.name}/")
         options.links("http://docs.oracle.com/javase/7/docs/api/");
         options.links("http://d.android.com/reference/");
         exclude '**/BuildConfig.java'
