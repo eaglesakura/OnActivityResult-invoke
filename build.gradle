@@ -53,21 +53,10 @@ android {
     }
 }
 
-// Local or maven
-if (!hasProperty("EGLIBRARY_COMPILE_LOCAL")) {
-    ext.EGLIBRARY_COMPILE_LOCAL = false
-}
-
 dependencies {
-    provided "com.android.support:support-v4:25.3.0"
-
-    if (EGLIBRARY_COMPILE_LOCAL) {
-        androidTestImplementation project(":eglibrary:android-devicetest-support")
-        testImplementation project(":eglibrary:android-unittest-support")
-    } else {
-        androidTestCompile "com.eaglesakura:android-devicetest-support:2.2.275"
-        testCompile "com.eaglesakura:android-unittest-support:1.5.211"
-    }
+    implementation "com.android.support:support-v4:25.3.0"
+    androidTestImplementation "com.eaglesakura:android-devicetest-support:2.2.275"
+    testImplementation "com.eaglesakura:android-unittest-support:1.5.211"
 }
 
 task sourcesJar(type: Jar) {
